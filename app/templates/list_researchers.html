@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Researchers</title>
+    
+    <!-- Incluye el CSS de Bootstrap 5 en modo oscuro (dark) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados para el esquema de color oscuro -->
+    <style>
+        body {
+            background-color: #fff;
+            color: #121212;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación (navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">My App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/list_researchers">List Researchers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_researcher">Add Researcher</a>
+                    </li>
+                    <!-- Agrega más enlaces de navegación según sea necesario -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        <h1>List of Researchers</h1>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Lab</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itera sobre los datos de los investigadores y muéstralos aquí -->
+                {% for researcher in researchers %}
+                <tr>
+                    <td>{{ researcher.first_name }}</td>
+                    <td>{{ researcher.last_name }}</td>
+                    <td>{{ researcher.email }}</td>
+                    <td>{{ researcher.phone }}</td>
+                    <td>{{ researcher.lab }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Incluye los scripts de Bootstrap 5 y Popper.js para funcionalidad adicional (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

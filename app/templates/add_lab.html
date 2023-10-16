@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Laboratory</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Lab Inventory System</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Add Laboratory</h1>
+        <form method="POST">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                {{ form.lab_name.label(class="form-label") }}
+                {{ form.lab_name(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.location.label(class="form-label") }}
+                {{ form.location(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.supervisor.label(class="form-label") }}
+                {{ form.supervisor(class="form-control") }}
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Include Bootstrap JavaScript and Popper.js for dropdowns (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

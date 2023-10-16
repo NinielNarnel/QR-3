@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Equipment</title>
+</head>
+<body>
+    <h1>Edit Equipment</h1>
+    <form method="POST" action="/edit_equipment/{{ equipment[0] }}">
+        <label for="equipment_name">Equipment Name:</label>
+        <input type="text" name="equipment_name" value="{{ equipment[1] }}" required><br>
+
+        <label for="lab_id">Lab ID:</label>
+        <input type="number" name="lab_id" value="{{ equipment[2] }}" required><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" value="{{ equipment[3] }}" required><br>
+
+        <label for="description">Description:</label>
+        <textarea name="description" rows="4" required>{{ equipment[4] }}</textarea><br>
+
+        <label for="purchase_date">Purchase Date:</label>
+        <input type="date" name="purchase_date" value="{{ equipment[5] }}" required><br>
+
+        <label for="maintenance_date">Maintenance Date:</label>
+        <input type="date" name="maintenance_date" value="{{ equipment[6] }}" required><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
