@@ -4,6 +4,7 @@ from flask import render_template, request, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, DateField, TextAreaField, SelectField
 from wtforms.validators import InputRequired
+from jinja2 import Environment, FileSystemLoader
 from .models import Laboratory, Equipment, Researcher, ChemicalSubstance, BiologicalSubstance
 from .forms import LaboratoryForm, EquipmentForm, ResearcherForm, ChemicalSubstanceForm, BiologicalSubstanceForm
 

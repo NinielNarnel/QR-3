@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>View Equipment</title>
-</head>
-<body>
-    <h1>Equipment Details</h1>
-    <ul>
-        <li><strong>Equipment Name:</strong> {{ equipment[1] }}</li>
-        <li><strong>Lab ID:</strong> {{ equipment[2] }}</li>
-        <li><strong>Quantity:</strong> {{ equipment[3] }}</li>
-        <li><strong>Description:</strong> {{ equipment[4] }}</li>
-        <li><strong>Purchase Date:</strong> {{ equipment[5] }}</li>
-        <li><strong>Maintenance Date:</strong> {{ equipment[6] }}</li>
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Add Biological Substance{% endblock %}
+
+{% block contenido %}
+
+<h1>Equipment Details</h1>
+<ul>
+    <li><strong>Equipment Name:</strong> {{ equipment[1] }}</li>
+    <li><strong>Lab ID:</strong> {{ equipment[2] }}</li>
+    <li><strong>Quantity:</strong> {{ equipment[3] }}</li>
+    <li><strong>Description:</strong> {{ equipment[4] }}</li>
+    <li><strong>Purchase Date:</strong> {{ equipment[5] }}</li>
+    <li><strong>Maintenance Date:</strong> {{ equipment[6] }}</li>
+</ul>
+
+
+{% endblock %}

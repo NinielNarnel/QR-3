@@ -1,50 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>List of Laboratories</title>
+{% extends 'base.html' %}
 
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Lab Inventory System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/add_lab">Add Lab</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/list_labs">List Labs</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+{% block title %}Add Biological Substance{% endblock %}
 
-    <div class="container mt-4">
-        <h1>List of Laboratories</h1>
-        <ul class="list-group">
-            {% for lab in labs %}
-                <li class="list-group-item">
-                    <a href="/view_lab/{{ lab.lab_id }}">{{ lab.lab_name }}</a>
-                    <a href="/edit_lab/{{ lab.lab_id }}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="/delete_lab/{{ lab.lab_id }}" class="btn btn-danger btn-sm">Delete</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+{% block contenido %}
 
-    <!-- Include Bootstrap JavaScript and Popper.js for dropdowns (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div class="container mt-4">
+    <h1>List of Laboratories</h1>
+    <ul class="list-group">
+        {% for lab in labs %}
+            <li class="list-group-item">
+                <a href="/view_lab/{{ lab.lab_id }}">{{ lab.lab_name }}</a>
+                <a href="/edit_lab/{{ lab.lab_id }}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="/delete_lab/{{ lab.lab_id }}" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 
+
+{% endblock %}

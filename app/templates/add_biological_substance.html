@@ -1,64 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Biological Substance</title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Lab Inventory System</a>
-        </div>
-    </nav>
+{% extends 'base.html' %}
 
-    <div class="container mt-4">
-        <h1>Add Biological Substance</h1>
-        <form method="POST">
-            {{ form.csrf_token }}
-            {{ form.hidden_tag() }}
+{% block title %}Add Biological Substance{% endblock %}
 
-            <div class="mb-3">
-                {{ form.substance_name.label(class="form-label") }}
-                {{ form.substance_name(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.lab.label(class="form-label") }}
-                {{ form.lab(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.quantity.label(class="form-label") }}
-                {{ form.quantity(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.organism_type.label(class="form-label") }}
-                {{ form.organism_type(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.hazard_level.label(class="form-label") }}
-                {{ form.hazard_level(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.storage_conditions.label(class="form-label") }}
-                {{ form.storage_conditions(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.acquisition_date.label(class="form-label") }}
-                {{ form.acquisition_date(class="form-control") }}
-            </div>
-            <div class="mb-3">
-                {{ form.expiration_date.label(class="form-label") }}
-                {{ form.expiration_date(class="form-control") }}
-            </div>
+{% block contenido %}
+<h1>Add Biological Substance</h1>
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
 
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+    <div class="mb-3">
+        {{ form.substance_name.label(class="form-label") }}
+        {{ form.substance_name(class="form-control") }}
     </div>
-
-    <!-- Include Bootstrap JavaScript and Popper.js for dropdowns (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="mb-3">
+        {{ form.lab.label(class="form-label") }}
+        {{ form.lab(class="form-control") }}
+    </div>
+    <!-- Add more form fields as needed -->
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

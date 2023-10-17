@@ -1,67 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>List of Equipment</title>
+{% extends 'base.html' %}
 
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Lab Inventory System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/list_labs">List Laboratories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/add_lab">Add New Laboratory</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/list_equipment">List Equipment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/add_equipment">Add New Equipment</a>
-                    </li>
-                    <!-- Add more links for other sections as needed -->
-                </ul>
-            </div>
-        </div>
-    </nav>
+{% block title %}Add Biological Substance{% endblock %}
 
-    <div class="container mt-4">
-        <h1 class="mb-4">List of Equipment</h1>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Equipment Name</th>
-                    <th>Laboratory</th>
-                    <th>Quantity</th>
-                    <th>Description</th>
-                    <th>Purchase Date</th>
-                    <th>Maintenance Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for equipment in equipment %}
-                <tr>
-                    <td>{{ equipment.equipment_name }}</td>
-                    <td>{{ equipment.lab.lab_name }}</td>
-                    <td>{{ equipment.quantity }}</td>
-                    <td>{{ equipment.description }}</td>
-                    <td>{{ equipment.purchase_date }}</td>
-                    <td>{{ equipment.maintenance_date }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+{% block contenido %}
 
-    <!-- Include Bootstrap JavaScript and Popper.js for dropdowns (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div class="container mt-4">
+    <h1 class="mb-4">List of Equipment</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Equipment Name</th>
+                <th>Laboratory</th>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Purchase Date</th>
+                <th>Maintenance Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipment in equipment %}
+            <tr>
+                <td>{{ equipment.equipment_name }}</td>
+                <td>{{ equipment.lab.lab_name }}</td>
+                <td>{{ equipment.quantity }}</td>
+                <td>{{ equipment.description }}</td>
+                <td>{{ equipment.purchase_date }}</td>
+                <td>{{ equipment.maintenance_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
