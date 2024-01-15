@@ -2,7 +2,7 @@
 
 {% block title %}Add Equipment{% endblock %}
 
-{% block contenido %}
+{% block content%}
 <div class="container mt-4">
     <h1>Add Equipment</h1>
     <form method="POST">
@@ -14,12 +14,8 @@
             {{ form.equipment_name(class="form-control") }}
         </div>
         <div class="mb-3">
-            {{ form.lab_id.label(class="form-label") }}
-            {{ form.lab_id(class="form-select") }}
-        </div>
-        <div class="mb-3">
-            {{ form.quantity.label(class="form-label") }}
-            {{ form.quantity(class="form-control") }}
+            {{ form.lab.label(class="form-label") }}
+            {{ form.lab(class="form-control") }}
         </div>
         <div class="mb-3">
             {{ form.description.label(class="form-label") }}

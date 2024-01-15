@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Chemical Substance{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('edit_chemical_substance', substance_id=substance.id) }}">
+
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    
+    <label for="substance_name">Susbtance name:</label>
+    <input type="text" name="substance_name" value="{{ substance.substance_name }}" required><br>
+
+    <label for="chemical_formula">Chemical formula:</label>
+    <input type="text" name="chemical_formula" value="{{ substance.chemical_formula }}" required><br>
+
+    <label for="lab">Lab:</label>
+    <input type="text" name="lab" value="{{ substance.lab }}" required><br>
+
+    <label for="cas">CAS:</label>
+    <input type="text" name="cas" value="{{ substance.cas }}" required><br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="text" name="quantity" value="{{ substance.quantity }}" required><br>
+
+    <label for="hazard_level">Hazard Level:</label>
+    <textarea name="hazard_level">{{ substance.hazard_level }}</textarea><br>
+
+    <label for="storage_conditions">Storage Conditions:</label>
+    <textarea name="storage_conditions">{{ substance.storage_conditions }}</textarea><br>
+
+    <label for="storage_place">Storage Place:</label>
+    <textarea name="storage_place">{{ substance.storage_place }}</textarea><br>
+
+    <label for="expiration_date">Expiration Date:</label>
+    <input type="date" name="expiration_date" value="{{ substance.expiration_date }}"><br>
+
+    <input type="submit" value="Save changes">
+</form>
+<a href="{{ url_for('list_chemical_substances') }}">Back to list</a>
+
+
+{% endblock %}

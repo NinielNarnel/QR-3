@@ -6,7 +6,7 @@
 <body>
     <h1>Delete Laboratory</h1>
     <p>Are you sure you want to delete the laboratory: {{ laboratory[1] }}?</p>
-    <form method="POST" action="/delete_lab/{{ laboratory[0] }}">
+    <form method="delete" action="/delete_lab/{{ laboratory[0] }}">
         <button type="submit">Delete</button>
     </form>
     <a href="/list_laboratories">Cancel</a>

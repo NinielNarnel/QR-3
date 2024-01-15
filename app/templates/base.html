@@ -7,12 +7,27 @@
 
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    
+    <!-- CSS para el fondo de la barra de navegación -->
+    <style>
+        .navbar-custom {
+            background-image: url('https://www.cislab.com.mx/web/image/124445-d7a85082/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%281%29.png');
+            background-size: cover; /* Ajusta la imagen completa */
+            background-repeat: no-repeat; /* Evita la repetición de la imagen */
+            background-position: center center; /* Mueve la imagen hacia arriba (center top) */
+            height: 100px; /* Altura fija para la barra de navegación */
+        }
+
+        .navbar-custom .navbar-brand {
+            color: #fff; /* Color del texto */
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="/">Lab Inventory System</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +35,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <!-- Aquí puedes eliminar o comentar los enlaces que no deseas mostrar -->
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link" href="/list_labs">List Laboratories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/add_lab">Add New Laboratory</a>
                     </li>
-                    <li class="nav-item">
+                    <li class "nav-item">
                         <a class="nav-link" href="/list_equipment">List Equipment</a>
                     </li>
                     <li class="nav-item">
@@ -35,14 +52,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/add_researcher">Add New Researcher</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_biological_substance">Add New Biological Substance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/list_biological_substances">List Biological Substances</a>
+                    </li>
+                    -->
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        {% block contenido %}{% endblock %}
+        {% block content %}{% endblock %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
 </body>
 </html>

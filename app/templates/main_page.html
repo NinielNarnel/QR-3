@@ -1,20 +1,75 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Biological Substance{% endblock %}
+{% block title %}Lab Inventory System{% endblock %}
 
-{% block contenido %}
+{% block content %}
+<style>
+  .card {
+    background-color: LightBlue; /* Color de fondo de las tarjetas */
+  }
+</style>
 
+<div class="container">
+  <h1 class="text-center mt-4">Welcome to the Lab Inventory System</h1>
+  <p class="lead text-center">Manage your inventory with ease</p>
 
-<h1>Welcome to the Lab Inventory System</h1>
-<p>This is the main page of our Lab Inventory System. You can navigate to different sections of the application using the links below:</p>
-<ul class="list-group">
-    <li class="list-group-item"><a href="/list_labs">List Laboratories</a></li>
-    <li class="list-group-item"><a href="/add_lab">Add New Laboratory</a></li>
-    <li class="list-group-item"><a href="/list_equipment">List Equipment</a></li>
-    <li class="list-group-item"><a href="/add_equipment">Add New Equipment</a></li>
-    <li class="list-group-item"><a href="/add_researcher">Add Researcher</a></li>
-    <li class="list-group-item"><a href="/add_chemical_substance">Add Chemical Substance</a></li>
-    <li class="list-group-item"><a href="/add_biological_substance">Add Biological Substance</a></li>
-    <!-- Add more links for other sections as needed -->
-</ul>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Laboratories</h5>
+          <p class="card-text">View and manage laboratory information.</p>
+          <a href="/list_labs" class="btn btn-primary">List Laboratories</a>
+          <a href="/add_lab" class="btn btn-success">Add Laboratory</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Equipment</h5>
+          <p class="card-text">Manage laboratory equipment and maintenance.</p>
+          <a href="/list_equipment" class="btn btn-primary">List Equipment</a>
+          <a href="/add_equipment" class="btn btn-success">Add Equipment</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Researchers</h5>
+          <p class="card-text">Add and view information about researchers.</p>
+          <a href="/list_researchers" class="btn btn-primary">List Researchers</a>
+          <a href="/add_researcher" class="btn btn-success">Add Researcher</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Chemical Substances</h5>
+          <p class="card-text">Manage chemical substances in your laboratory.</p>
+          <a href="/list_chemical_substances" class="btn btn-primary">List Chemical Substances</a>
+          <a href="/add_chemical_substance" class="btn btn-success">Add Chemical Substance</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Biological Substances</h5>
+          <p class="card-text">Add and view information about biological substances.</p>
+          <a href="/list_biological_substances" class="btn btn-primary">List Biological Substances</a>
+          <a href="/add_biological_substance" class="btn btn-success">Add Biological Substance</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

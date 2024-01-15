@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Chemical Substance{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+
+    <p>¿Estás seguro de que deseas eliminar la siguiente sustancia biológica?</p>
+    <p><strong>Nombre de la Sustancia:</strong> {{ substance.substance_name }}</p>
+    <p><strong>Lab:</strong> {{ substance.lab }}</p>
+    <p><strong>CAS:</strong> {{ substance.cas }}</p>
+    <p><strong>Quantity:</strong> {{ substance.quantity }}</p>
+    <p><strong>Hazard Level:</strong> {{ substance.hazard_level }}</p>
+    <p><strong>Storage Conditions:</strong> {{ substance.storage_conditions }}</p>
+    <p><strong>Storage Place:</strong> {{ substance.storage_place }}</p>
+    <p><strong>Expiration Date:</strong> {{ substance.expiration_date.strftime('%Y-%m-%d') }}</p>
+    <!-- Agrega más campos si es necesario -->
+
+    <input type="submit" value="Confirmar Eliminación">
+</form>
+<a href="{{ url_for('list_chemical_substances') }}">Cancel</a>
+
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this item?");
+    }
+</script>
+
+{% endblock %}

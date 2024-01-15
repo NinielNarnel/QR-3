@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Biological Substance{% endblock %}
+{% block title %}Add Lab{% endblock %}
 
-{% block contenido %}
+{% block content %}
 
 <div class="container mt-4">
     <h1>Add Laboratory</h1>
@@ -11,8 +11,8 @@
         {{ form.hidden_tag() }}
 
         <div class="mb-3">
-            {{ form.lab_name.label(class="form-label") }}
-            {{ form.lab_name(class="form-control") }}
+            {{ form.lab_id.label(class="form-label") }}
+            {{ form.lab_id(class="form-control") }}
         </div>
         <div class="mb-3">
             {{ form.location.label(class="form-label") }}

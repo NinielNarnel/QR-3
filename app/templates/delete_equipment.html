@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Equipment{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+
+    <p>Are you certain you want to delete this item?</p>
+    <p><strong>Name:</strong> {{equipment.name }}</p>
+    <p><strong>Lab:</strong> {{ equipment.lab}}</p>
+    <p><strong>Quantity:</strong> {{ equipment.quantity }}</p>
+    <p><strong>Description:</strong> {{ equipment.description }}</p>
+    <p><strong>Purchase Date:</strong> {{ equipment.purchase_date.strftime('%Y-%m-%d') }}</p>
+    <p><strong>Maintenance Date:</strong> {{ equipment.maintenance_date.strftime('%Y-%m-%d') }}</p>
+    
+
+    <input type="submit" value="Confirm Delete">
+</form>
+<a href="{{ url_for('list_equipment') }}">Cancel</a>
+
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this item?");
+    }
+</script>
+
+{% endblock %}
+

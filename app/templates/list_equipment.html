@@ -1,32 +1,44 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Biological Substance{% endblock %}
+{% block title %}List of Equipment{% endblock %}
 
-{% block contenido %}
+{% block content %}
 
 <div class="container mt-4">
     <h1 class="mb-4">List of Equipment</h1>
+    <form class="form-inline mb-3" method="get" action="{{ url_for('list_equipment') }}">
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Equipment Name</th>
                 <th>Laboratory</th>
-                <th>Quantity</th>
                 <th>Description</th>
                 <th>Purchase Date</th>
                 <th>Maintenance Date</th>
+                <th>UUID</th>
+                <th>QR</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for equipment in equipment %}
             <tr>
                 <td>{{ equipment.equipment_name }}</td>
-                <td>{{ equipment.lab.lab_name }}</td>
-                <td>{{ equipment.quantity }}</td>
+                <td>{{ equipment.lab}}</td>
                 <td>{{ equipment.description }}</td>
                 <td>{{ equipment.purchase_date }}</td>
                 <td>{{ equipment.maintenance_date }}</td>
-            </tr>
+                <th>{{ equipment.UUID }}</th>
+                <td><img src="data:image/png;base64,{{ equipment.qr_codes[0].code_data }}"></td>
+                <td>
+                    <a href="{{ url_for('edit_equipment', equipment_id=equipment.id) }}" class="btn btn-primary">Edit</a>
+                        <form method="delete" action="{{ url_for('delete_equipment', equipment_id=equipment.id) }}" style="display: inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                        </form>
+                    </td>
             {% endfor %}
         </tbody>
     </table>

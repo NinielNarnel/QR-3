@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>List of Biological Substances</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Lab Inventory System</a>
-        </div>
-    </nav>
+{% extends 'base.html' %}
 
-    <div class="container mt-4">
+{% block title %}List of Biological Substances{% endblock %}
+
+{% block content %}
+
+
+ <div class="container mt-4">
         <h1>List of Biological Substances</h1>
+        <!-- Agregar el formulario de búsqueda justo encima de la tabla -->
+    <form class="form-inline mb-3" method="get" action="{{ url_for('list_biological_substances') }}">
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Substance Name</th>
+                    <th>CID</th>
+                    <th>CAS</th>
                     <th>Lab</th>
-                    <th>Quantity</th>
-                    <th>Organism Type</th>
+                    <th>Quantity (ml)</th>
+                    <th>Source</th>
                     <th>Hazard Level</th>
                     <th>Storage Conditions</th>
+                    <th>Storage Place</th>
                     <th>Acquisition Date</th>
                     <th>Expiration Date</th>
+                    <th>UUID</th>
+                    <th>Safety Sheet</th>
+                    <th>QR Code</th>
+                    <th>Actions</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 {% for biological in biologicals %}
                     <tr>
                         <td>{{ biological.substance_name }}</td>
+                        <td>{{ biological.cid }}</td>
+                        <td>{{ biological.cas }}</td>
                         <td>{{ biological.lab }}</td>
                         <td>{{ biological.quantity }}</td>
                         <td>{{ biological.organism_type }}</td>
                         <td>{{ biological.hazard_level }}</td>
                         <td>{{ biological.storage_conditions }}</td>
+                        <td>{{ biological.storage_place }}</td>
                         <td>{{ biological.acquisition_date.strftime('%Y-%m-%d') }}</td>
                         <td>{{ biological.expiration_date.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ biological.UUID }}</td>
+                        <td><a href="{{ biological.safety_sheet }}" target="_blank">Get Safety Sheet</a></td>
+                        <td><img src="data:image/png;base64,{{ biological.qr_codes[0].code_data }}"></td>
+                        <td>
+                        <a href="{{ url_for('edit_biological_substance', substance_id=biological.id) }}" class="btn btn-primary">Edit</a>
+                            <form method="delete" action="{{ url_for('delete_biological_substance', substance_id=biological.id) }}" style="display: inline;">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Biological Substance{% endblock %}
+{% block title %}Add Chemical Substance{% endblock %}
 
-{% block contenido %}
-
+{% block content %}
 <h1>Add Chemical Substance</h1>
 <form method="POST">
     {{ form.csrf_token }}
     {{ form.hidden_tag() }}
 
     <div class="mb-3">
-        {{ form.substance_name.label(class="form-label") }}
-        {{ form.substance_name(class="form-control") }}
+        {{ form.cid.label(class="form-label") }}
+        {{ form.cid(class="form-control") }}
     </div>
     <div class="mb-3">
         {{ form.lab.label(class="form-label") }}
@@ -22,16 +21,16 @@
         {{ form.quantity(class="form-control") }}
     </div>
     <div class="mb-3">
-        {{ form.chemical_formula.label(class="form-label") }}
-        {{ form.chemical_formula(class="form-control") }}
-    </div>
-    <div class="mb-3">
         {{ form.hazard_level.label(class="form-label") }}
         {{ form.hazard_level(class="form-control") }}
     </div>
     <div class="mb-3">
         {{ form.storage_conditions.label(class="form-label") }}
         {{ form.storage_conditions(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.storage_place.label(class="form-label") }}
+        {{ form.storage_place(class="form-control") }}
     </div>
     <div class="mb-3">
         {{ form.purchase_date.label(class="form-label") }}

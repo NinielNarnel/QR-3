@@ -2,23 +2,51 @@
 
 {% block title %}Add Biological Substance{% endblock %}
 
-{% block contenido %}
+{% block content %}
 <h1>Add Biological Substance</h1>
 <form method="POST">
     {{ form.csrf_token }}
     {{ form.hidden_tag() }}
-
-    <div class="mb-3">
-        {{ form.substance_name.label(class="form-label") }}
-        {{ form.substance_name(class="form-control") }}
-    </div>
+    
     <div class="mb-3">
         {{ form.lab.label(class="form-label") }}
         {{ form.lab(class="form-control") }}
     </div>
-    <!-- Add more form fields as needed -->
+    <div class="mb-3">
+        {{ form.cid.label(class="form-label") }}
+        {{ form.cid(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.quantity.label(class="form-label") }}
+        {{ form.quantity(class="form-control") }}
+    </div>  
+    <div class="mb-3">
+        {{ form.organism_type.label(class="form-label") }}
+        {{ form.organism_type(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.hazard_level.label(class="form-label") }}
+        {{ form.hazard_level(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.storage_conditions.label(class="form-label") }}
+        {{ form.storage_conditions(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.storage_place.label(class="form-label") }}
+        {{ form.storage_place(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.acquisition_date.label(class="form-label") }}
+        {{ form.acquisition_date(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.expiration_date.label(class="form-label") }}
+        {{ form.expiration_date(class="form-control") }}
+    </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
+
 {% endblock %}
